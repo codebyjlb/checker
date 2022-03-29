@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Cigarette Expiry Date Checker - BY SSD</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+
+  <style>
+
+    .main {
+
+        width: 600px;
+        margin: 0 auto;
+        margin-top: 200px;
+    }
+
+    #checker {
+
+        margin-top: 50px;
+    }
+
+    .expiry {
+
+        margin-top: 20px;
+        font-weight: bold;
+
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="main">
+
+    Cigarrete Expiry Date Checker by SSD 
+
+    <div id="checker">
+       
+             <label for="username">PMTFC:</label>
+             <input type="text" id="pcode" placeholder="Enter the last 6 characters" onchange="check()">  
+             
+            <p></p>
+       
+
+             <label for="username">JTI:</label>
+            <input type="text" id="jcode" placeholder="Enter the first 5 characters" >
+            
+            <div class="expiry">
+
+                Expiry Date: <span id="expiry"></span>
+
+            </div>
+
+
+            <div style="margin-top: 50px">
+                 Coded by JLB
+            </div>
+
+            
+
+
+    </div>
+
+
+</div>
+
+</body>
+
+<script>
+
+function check() {
+
+var ecode = document.getElementById('pcode').value;
+var result = document.getElementById('expiry');
+
+
+
+var pyear = ecode.toString().slice(0, 1);
+
+var pday = ecode.toString().slice(1, 4);
+
+var dday = parseInt(pday) / 30;
+
+var fday = Math.round(dday)
+
+var ryear;
+var rmonth;
+
+switch (pyear) {
+
+case '0':
+ 
+ryear = "2020";
+break;
+
+case '1':
+
+ryear = "2021";
+break;
+
+case '2':
+
+ryear = "2022";
+break;
+
+case '3':
+
+ryear = "2023";
+break;
+
+case '4':
+
+ryear = "2024";
+break;
+
+case '5':
+
+ryear = "2025";
+break;
+
+case '6':
+
+ryear = "2026";
+break;
+
+case '7':
+
+ryear = "2027";
+break;
+
+case '8':
+
+ryear = "2028";
+break;
+
+case '9':
+
+ryear = "2029";
+break;
+
+default: 
+
+result.textContent =  " " ;
+
+}
+
+
+switch (fday) {
+
+
+case 1:
+
+rmonth = "January";
+break;
+
+case 2:
+
+rmonth = "February";
+break;
+
+case 3:
+
+rmonth = "March";
+break;
+
+case 4:
+
+rmonth = "April";
+break;
+
+case 5:
+
+rmonth = "May";
+break;
+
+case 6:
+
+rmonth = "June";
+break;
+
+case 7:
+
+rmonth = "July";
+break;
+
+case 8:
+
+rmonth = "August";
+break;
+
+case 9:
+
+rmonth = "September";
+break;
+
+case 10:
+
+rmonth = "October";
+break;
+
+case 11:
+
+rmonth = "November";
+break;
+
+case 12:
+
+rmonth = "December";
+break;
+
+default: 
+
+rmonth = "Incorrect Code";
+ryear= "";
+break;
+
+
+}
+
+
+ 
+result.textContent = rmonth + " " + ryear;
+
+
+
+
+}
+
+
+
+</script>
+
+
+</html>
