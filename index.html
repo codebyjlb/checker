@@ -42,13 +42,13 @@
     <div id="checker">
        
              <label for="username">PMTFC:</label>
-             <input type="text" id="pcode" placeholder="Enter the last 6 characters" onchange="check()">  
+             <input type="text" id="pcode" placeholder="Enter the last 6 characters" onchange="checkpmtfc()" maxlength="6"  oninput="this.value = this.value.toUpperCase()">  
              
             <p></p>
        
 
              <label for="username">JTI:</label>
-            <input type="text" id="jcode" placeholder="Enter the first 5 characters" >
+            <input type="text" id="jcode" placeholder="Enter the first 5 characters" onchange="checkjti()" maxlength="5" oninput="this.value = this.value.toUpperCase()" >
             
             <div class="expiry">
 
@@ -73,7 +73,7 @@
 
 <script>
 
-function check() {
+function checkpmtfc() {
 
 var ecode = document.getElementById('pcode').value;
 var result = document.getElementById('expiry');
@@ -145,7 +145,9 @@ break;
 
 default: 
 
-result.textContent =  " " ;
+ryear = "Please check the code";
+rmonth= "";
+break;
 
 }
 
@@ -215,8 +217,9 @@ break;
 
 default: 
 
-rmonth = "Incorrect Code";
+rmonth = "Please check the code";
 ryear= "";
+
 break;
 
 
@@ -225,6 +228,174 @@ break;
 
  
 result.textContent = rmonth + " " + ryear;
+
+
+
+
+}
+
+
+
+
+function checkjti() {
+
+var ecode = document.getElementById('jcode').value;
+var result = document.getElementById('expiry');
+
+
+
+var pyear = ecode.substr(2, 1);
+
+var pmonth = ecode.substr(1, 1);
+
+var pdate = ecode.substr(3, 2);
+
+var ryear;
+var rmonth;
+
+switch (pyear) {
+
+case  "I":
+ 
+ryear = "2019";
+break;
+
+case  "J":
+ 
+ryear = "2020";
+break;
+
+case "K":
+
+ryear = "2021";
+break;
+
+case "L":
+
+ryear = "2022";
+break;
+
+case "M":
+
+ryear = "2023";
+break;
+
+case "N":
+
+ryear = "2024";
+break;
+
+case "O":
+
+ryear = "2025";
+break;
+
+case "P":
+
+ryear = "2026";
+break;
+
+case "Q":
+
+ryear = "2027";
+break;
+
+case "R":
+
+ryear = "2028";
+break;
+
+case "S":
+
+ryear = "2029";
+break;
+
+ryear = "Please check the code";
+rmonth = "";
+pdate = "";
+
+break;
+
+
+}
+
+
+switch (pmonth) {
+
+
+case "A":
+
+rmonth = "January";
+break;
+
+case "B":
+
+rmonth = "February";
+break;
+
+case "C":
+
+rmonth = "March";
+break;
+
+case "D":
+
+rmonth = "April";
+break;
+
+case "E":
+
+rmonth = "May";
+break;
+
+case "F":
+
+rmonth = "June";
+break;
+
+case "G":
+
+rmonth = "July";
+break;
+
+case "H":
+
+rmonth = "August";
+break;
+
+case "I":
+
+rmonth = "September";
+break;
+
+case "J":
+
+rmonth = "October";
+break;
+
+case "K":
+
+rmonth = "November";
+break;
+
+case "L":
+
+rmonth = "December";
+break;
+
+default: 
+
+rmonth = "Please check the code";
+ryear= "";
+pdate = "";
+break;
+
+
+}
+
+
+ 
+result.textContent = rmonth + " " + pdate + " "+ ryear; 
 
 
 
